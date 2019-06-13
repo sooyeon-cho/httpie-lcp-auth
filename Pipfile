@@ -6,7 +6,7 @@ name = "pypi"
 
 
 [packages]
-httpie = "==0.9.8"
+httpie = "==0.9.9"
 
 
 [requires]
