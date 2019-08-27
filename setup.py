@@ -8,7 +8,7 @@ setup(
     name='httpie-lcp-auth',
     description='Loyalty Commerce Platform HMAC Auth plugin for HTTPie.',
     long_description=open('README.md').read().strip(),
-    version='0.1.0',
+    version='0.2.0',
     author='Ferdinand Cardoso',
     author_email='ferdinand.cardoso@points.com',
     license='GNU General Public License',
@@ -25,7 +25,7 @@ setup(
         ]
     },
     install_requires=[
-        'httpie>=0.9.8'
+        'httpie>=1.0.3'
     ],
     classifiers=[
         'Development Status :: 5 - Production/Stable',
