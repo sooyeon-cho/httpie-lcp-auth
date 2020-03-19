@@ -3,7 +3,7 @@ from httpie.plugins import AuthPlugin
 
 import generators
 
-__version__ = '0.1.0'
+__version__ = '1.0.1'
 __author__ = 'Ferdinand Cardoso'
 __licence__ = 'GNU General Public License'
 
