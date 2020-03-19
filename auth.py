@@ -3,7 +3,7 @@ from httpie.plugins import AuthPlugin
 
 import generators
 
-__version__ = '1.0.1'
+__version__ = '1.0.2'
 __author__ = 'Ferdinand Cardoso'
 __licence__ = 'GNU General Public License'
 
@@ -17,7 +17,7 @@ class LcpHmacAuth:
         if not self.secret_identifier or not self.secret_key:
             raise ValueError('Loyalty Commerce Platform secret identifier or key cannot be empty.')
 
-        content_type = r.headers.get('content-type')
+        content_type = r.headers.get('content-type').decode()
         if r.method in ['POST', 'PUT', 'PATCH']:
             content_type = 'application/json'
         auth_hdr_value = generators.generate_authorization_header_value(
@@ -26,7 +26,7 @@ class LcpHmacAuth:
             self.secret_identifier,
             self.secret_key,
             content_type,
-            r.body)
+            r.body.decode())
 
         if content_type:
             r.headers['Content-Type'] = content_type

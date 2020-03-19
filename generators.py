@@ -11,13 +11,11 @@ def generate_ext(content_type, body):
     """Implements the notion of the ext as described in
     http://tools.ietf.org/html/draft-ietf-oauth-v2-http-mac-02#section-3.1"""
 
-    if content_type is not None and body is not None and len(content_type) > 0 and len(body) > 0:
+    if content_type and body:
         content_type_plus_body = content_type + body
         content_type_plus_body_hash = hashlib.sha1(content_type_plus_body)
-        ext = content_type_plus_body_hash.hexdigest()
-    else:
-        ext = ""
-    return ext
+        return content_type_plus_body_hash.hexdigest()
+    return ""
 
 
 def build_normalized_request_string(ts, nonce, http_method, host, port, request_path, ext):
@@ -51,8 +49,7 @@ def generate_signature(mac_key, normalized_request_string):
     # Base64 decode the MAC key using URL-safe alphabet
     mac_key = base64.urlsafe_b64decode(mac_key)
 
-    return base64.b64encode(
-        hmac.new(mac_key, normalized_request_string, hashlib.sha1).digest())
+    return base64.b64encode(hmac.new(mac_key, normalized_request_string, hashlib.sha1).digest())
 
 
 def generate_authorization_header_value(
