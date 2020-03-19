@@ -6,9 +6,9 @@ name = "pypi"
 
 
 [packages]
-httpie = "==1.0.3"
+httpie = "==2.0.0"
 
 
 [requires]
 
-python_version = "2.7"
+python_version = "3.6"
