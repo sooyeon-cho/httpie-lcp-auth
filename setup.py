@@ -25,7 +25,7 @@ setup(
         ]
     },
     install_requires=[
-        'httpie>=1.0.3'
+        'httpie>=2.0.0'
     ],
     classifiers=[
         'Development Status :: 5 - Production/Stable',
