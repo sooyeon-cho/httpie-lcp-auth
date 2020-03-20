@@ -11,7 +11,7 @@ __licence__ = 'GNU General Public License'
 class LcpHmacAuth:
     def __init__(self, secret_identifier, secret_key):
         self.secret_identifier = secret_identifier
-        self.secret_key = secret_key.encode('ascii')
+        self.secret_key = secret_key
 
     def __call__(self, r):
         if not self.secret_identifier or not self.secret_key:
